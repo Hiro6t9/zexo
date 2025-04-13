@@ -51,7 +51,7 @@ export const DownloadOptions = ({
   const audioOptions = downloadOptions.filter((option) => option.format === "mp3");
 
   return (
-    <Card className="w-full max-w-2xl shadow-lg border-zexo-200">
+    <Card className="w-full max-w-2xl premium-card">
       <CardContent className="p-6">
         {isLoading ? (
           <div className="space-y-4">
@@ -108,7 +108,7 @@ export const DownloadOptions = ({
                       </div>
                       <Button
                         onClick={() => handleDownload(option.url, option.format)}
-                        className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white hover:opacity-90 border-0"
+                        className="btn-glow btn-glow-purple"
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Download MP4

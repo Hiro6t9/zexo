@@ -4,44 +4,45 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Violet Luxe Theme */
+    --background: 240 26% 14%;  /* #1A1A2E (Dark Indigo) */
+    --foreground: 0 0% 100%;    /* #FFFFFF (Text Primary) */
     
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 240 26% 14%;
+    --card-foreground: 0 0% 100%;
     
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 26% 14%;
+    --popover-foreground: 0 0% 100%;
     
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 270 100% 50%;    /* #7F00FF (Vivid Violet) */
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 266 100% 69%;  /* #9F5FFF (Soft Purple) */
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 240 26% 20%;
+    --muted-foreground: 270 33% 84%;  /* #D1C4E9 (Soft Lilac) */
     
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 284 100% 75%;     /* #D580FF (Lavender Glow) */
+    --accent-foreground: 0 0% 100%;
     
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 270 70% 40%;
+    --input: 270 70% 40%;
+    --ring: 270 100% 50%;
     
     --radius: 0.75rem;
     
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 240 26% 14%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 270 100% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 284 100% 75%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 270 70% 40%;
+    --sidebar-ring: 270 100% 50%;
   }
 
   .light {
@@ -81,26 +82,57 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-violet-background text-violet-text;
+  }
+  
+  /* Violet Luxe Theme */
+  .violet-gradient {
+    @apply bg-gradient-to-r from-violet-primary via-violet-secondary to-violet-accent;
+  }
+  
+  .violet-gradient-text {
+    @apply bg-gradient-to-r from-violet-primary via-violet-secondary to-violet-accent inline-block text-transparent bg-clip-text;
   }
   
   .zexo-gradient {
-    @apply bg-gradient-to-r from-zexo-700 via-zexopurple-700 to-zexo-800;
+    @apply bg-gradient-to-r from-violet-primary via-violet-secondary to-violet-accent;
   }
   
   .zexo-gradient-text {
-    @apply bg-gradient-to-r from-zexo-500 via-zexopurple-500 to-zexo-600 inline-block text-transparent bg-clip-text;
+    @apply violet-gradient-text;
   }
   
   .zexo-input-gradient {
-    @apply bg-background border-zexo-800 focus-within:ring-2 focus-within:ring-zexo-500 focus-within:border-zexo-500;
+    @apply bg-violet-background/80 border-violet-secondary/40 focus-within:ring-2 focus-within:ring-violet-primary focus-within:border-violet-primary;
   }
   
   .glass-morphism {
-    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+    @apply backdrop-blur-xl bg-white/5 border border-violet-secondary/20 shadow-[0_4px_12px_-2px_rgba(127,0,255,0.3)];
   }
   
   .neo-blur {
-    @apply backdrop-blur-2xl bg-black/40 border border-white/10;
+    @apply backdrop-blur-2xl bg-black/40 border border-violet-secondary/20;
+  }
+
+  /* Button glow effect */
+  .btn-glow {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  
+  .btn-glow:hover {
+    @apply shadow-[0_0_15px_rgba(127,0,255,0.6)] transform scale-[1.02];
+  }
+  
+  .btn-glow-purple {
+    @apply bg-gradient-to-r from-violet-primary to-violet-secondary text-white border-0;
+  }
+
+  .btn-glow-purple:hover {
+    @apply shadow-[0_0_20px_rgba(127,0,255,0.8)] from-violet-secondary to-violet-primary;
+  }
+
+  /* Premium card style */
+  .premium-card {
+    @apply rounded-xl border border-violet-secondary/20 bg-black/40 backdrop-blur-md shadow-[0_8px_30px_rgb(127,0,255,0.15)];
   }
 }
