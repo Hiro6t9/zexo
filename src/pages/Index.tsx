@@ -6,7 +6,6 @@ import { PlatformInfo } from "@/components/PlatformInfo";
 import { DownloadOptions } from "@/components/DownloadOptions";
 import { HowTo } from "@/components/HowTo";
 import { Footer } from "@/components/Footer";
-import { DiscordEmbed } from "@/components/DiscordEmbed";
 import { useToast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
 
@@ -147,10 +146,6 @@ const Index = () => {
         </div>
         
         <PlatformInfo />
-        
-        <div className="my-8 flex flex-col md:flex-row items-center gap-8">
-          <DiscordEmbed />
-        </div>
       </main>
       
       <Footer />
