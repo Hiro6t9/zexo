@@ -108,7 +108,7 @@ export const DownloadOptions = ({
                       </div>
                       <Button
                         onClick={() => handleDownload(option.url, option.format)}
-                        className="zexo-gradient hover:opacity-90"
+                        className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white hover:opacity-90 border-0"
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Download MP4
@@ -129,7 +129,7 @@ export const DownloadOptions = ({
                       </div>
                       <Button
                         onClick={() => handleDownload(option.url, option.format)}
-                        className="zexo-gradient hover:opacity-90"
+                        className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white hover:opacity-90 border-0"
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Download MP3
@@ -153,7 +153,7 @@ export const DownloadOptions = ({
                     </div>
                     <Button
                       onClick={() => handleDownload(option.url, option.format)}
-                      className="zexo-gradient hover:opacity-90"
+                      className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white hover:opacity-90 border-0"
                     >
                       <Download className="h-4 w-4 mr-2" />
                       Download

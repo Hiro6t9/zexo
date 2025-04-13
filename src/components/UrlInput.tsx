@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Youtube, CircleCheck } from "lucide-react";
+import { ArrowRight, CircleCheck } from "lucide-react";
 
 interface UrlInputProps {
   onSubmit: (url: string) => void;
@@ -27,6 +27,8 @@ export const UrlInput = ({ onSubmit, isLoading }: UrlInputProps) => {
       setDetectedPlatform("TikTok");
     } else if (url.includes("pinterest.com")) {
       setDetectedPlatform("Pinterest");
+    } else if (url.includes("spotify.com") || url.includes("open.spotify")) {
+      setDetectedPlatform("Spotify");
     } else {
       setDetectedPlatform(null);
     }
@@ -59,10 +61,10 @@ export const UrlInput = ({ onSubmit, isLoading }: UrlInputProps) => {
         <div className="relative flex-1">
           <Input
             type="text"
-            placeholder="Paste YouTube, TikTok or Pinterest URL here"
+            placeholder="Paste YouTube, TikTok, Pinterest or Spotify URL here"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="pr-12 h-12 text-base shadow-sm zexo-input-gradient"
+            className="pr-12 h-12 text-base shadow-lg border-indigo-900/50 focus:border-indigo-500 bg-black/20 backdrop-blur-sm"
           />
           {detectedPlatform && (
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
@@ -74,7 +76,7 @@ export const UrlInput = ({ onSubmit, isLoading }: UrlInputProps) => {
         <Button 
           type="submit" 
           disabled={isLoading || !url.trim()} 
-          className="h-12 px-6 zexo-gradient hover:opacity-90 transition-opacity"
+          className="h-12 px-6 bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 text-white hover:opacity-90 border-0 shadow-lg shadow-indigo-500/20"
         >
           {isLoading ? "Processing..." : (
             <>

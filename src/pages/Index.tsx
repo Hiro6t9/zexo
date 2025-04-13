@@ -6,7 +6,9 @@ import { PlatformInfo } from "@/components/PlatformInfo";
 import { DownloadOptions } from "@/components/DownloadOptions";
 import { HowTo } from "@/components/HowTo";
 import { Footer } from "@/components/Footer";
+import { DiscordEmbed } from "@/components/DiscordEmbed";
 import { useToast } from "@/components/ui/use-toast";
+import { Separator } from "@/components/ui/separator";
 
 // Mock data for demonstration purposes
 const mockDownloadOptions = {
@@ -18,8 +20,8 @@ const mockDownloadOptions = {
       { url: "#", quality: "2K", format: "mp4", size: "256 MB" },
       { url: "#", quality: "1080p", format: "mp4", size: "128 MB" },
       { url: "#", quality: "720p", format: "mp4", size: "64 MB" },
-      { url: "#", quality: "High", format: "mp3", size: "8 MB" },
-      { url: "#", quality: "Medium", format: "mp3", size: "4 MB" },
+      { url: "#", quality: "High Quality", format: "mp3", size: "8 MB" },
+      { url: "#", quality: "Medium Quality", format: "mp3", size: "4 MB" },
     ],
   },
   tiktok: {
@@ -36,9 +38,20 @@ const mockDownloadOptions = {
     thumbnail: "https://source.unsplash.com/random/600x800?design",
     options: [
       { url: "#", quality: "4K Original", format: "mp4", size: "120 MB" },
+      { url: "#", quality: "2K", format: "mp4", size: "80 MB" },
       { url: "#", quality: "1080p", format: "mp4", size: "45 MB" },
-      { url: "#", quality: "High Quality", format: "jpg", size: "6 MB" },
-      { url: "#", quality: "Medium Quality", format: "jpg", size: "2 MB" },
+      { url: "#", quality: "Original Quality", format: "jpg", size: "6 MB" },
+      { url: "#", quality: "High Quality", format: "jpg", size: "2 MB" },
+    ],
+  },
+  spotify: {
+    title: "Sample Spotify Track",
+    thumbnail: "https://source.unsplash.com/random/500x500?music",
+    options: [
+      { url: "#", quality: "320 kbps", format: "mp3", size: "12 MB" },
+      { url: "#", quality: "256 kbps", format: "mp3", size: "9 MB" },
+      { url: "#", quality: "192 kbps", format: "mp3", size: "7 MB" },
+      { url: "#", quality: "128 kbps", format: "mp3", size: "5 MB" },
     ],
   },
 };
@@ -56,6 +69,8 @@ const Index = () => {
       return "TikTok";
     } else if (url.includes("pinterest.com")) {
       return "Pinterest";
+    } else if (url.includes("spotify.com") || url.includes("open.spotify")) {
+      return "Spotify";
     }
     return null;
   };
@@ -89,6 +104,9 @@ const Index = () => {
           break;
         case "pinterest":
           mockData = mockDownloadOptions.pinterest;
+          break;
+        case "spotify":
+          mockData = mockDownloadOptions.spotify;
           break;
         default:
           mockData = null;
@@ -124,7 +142,15 @@ const Index = () => {
         
         <HowTo />
         
+        <div className="w-full max-w-4xl">
+          <Separator className="my-8 bg-white/10" />
+        </div>
+        
         <PlatformInfo />
+        
+        <div className="my-8 flex flex-col md:flex-row items-center gap-8">
+          <DiscordEmbed />
+        </div>
       </main>
       
       <Footer />
