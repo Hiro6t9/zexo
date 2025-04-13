@@ -98,4 +98,16 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  .zexo-gradient {
+    @apply bg-gradient-to-r from-zexo-700 via-zexopurple-700 to-zexo-800;
+  }
+  
+  .zexo-gradient-text {
+    @apply bg-gradient-to-r from-zexo-500 via-zexopurple-500 to-zexo-600 inline-block text-transparent bg-clip-text;
+  }
+  
+  .zexo-input-gradient {
+    @apply bg-white focus-within:ring-2 focus-within:ring-zexo-500 focus-within:border-zexo-500;
+  }
 }
