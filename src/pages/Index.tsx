@@ -14,9 +14,10 @@ const mockDownloadOptions = {
     title: "Sample YouTube Video",
     thumbnail: "https://source.unsplash.com/random/480x360?tech",
     options: [
+      { url: "#", quality: "4K", format: "mp4", size: "512 MB" },
+      { url: "#", quality: "2K", format: "mp4", size: "256 MB" },
       { url: "#", quality: "1080p", format: "mp4", size: "128 MB" },
       { url: "#", quality: "720p", format: "mp4", size: "64 MB" },
-      { url: "#", quality: "480p", format: "mp4", size: "32 MB" },
       { url: "#", quality: "High", format: "mp3", size: "8 MB" },
       { url: "#", quality: "Medium", format: "mp3", size: "4 MB" },
     ],
@@ -25,16 +26,19 @@ const mockDownloadOptions = {
     title: "Sample TikTok Video",
     thumbnail: "https://source.unsplash.com/random/480x720?social",
     options: [
-      { url: "#", quality: "HD", format: "mp4", size: "25 MB" },
-      { url: "#", quality: "SD", format: "mp4", size: "12 MB" },
+      { url: "#", quality: "1080p", format: "mp4", size: "45 MB" },
+      { url: "#", quality: "720p", format: "mp4", size: "25 MB" },
+      { url: "#", quality: "540p", format: "mp4", size: "12 MB" },
     ],
   },
   pinterest: {
     title: "Sample Pinterest Content",
     thumbnail: "https://source.unsplash.com/random/600x800?design",
     options: [
-      { url: "#", quality: "Original", format: "mp4", size: "15 MB" },
-      { url: "#", quality: "High Quality", format: "jpg", size: "2 MB" },
+      { url: "#", quality: "4K Original", format: "mp4", size: "120 MB" },
+      { url: "#", quality: "1080p", format: "mp4", size: "45 MB" },
+      { url: "#", quality: "High Quality", format: "jpg", size: "6 MB" },
+      { url: "#", quality: "Medium Quality", format: "jpg", size: "2 MB" },
     ],
   },
 };
@@ -96,13 +100,13 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       
       <main className="flex-1 container px-4 py-12 flex flex-col items-center gap-12">
         <div className="text-center max-w-2xl mb-2">
           <h2 className="text-3xl font-bold mb-4">Download Videos & Music</h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-muted-foreground mb-6">
             Free online downloader for YouTube, TikTok, and Pinterest content without watermarks
           </p>
           <UrlInput onSubmit={handleSubmit} isLoading={isLoading} />
